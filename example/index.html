@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+        <title>Adad Sample</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<script type="text/javascript" src="cordova.js"></script>
+    </head>
+    <body>
+		<script>
+			document.addEventListener("deviceready", function () {
+				var parentElement = document.getElementById("deviceready");
+				var listeningElement = parentElement.querySelector('.listening');
+				var receivedElement = parentElement.querySelector('.received');
+
+				listeningElement.setAttribute('style', 'display:none;');
+				receivedElement.setAttribute('style', 'display:block;');
+				
+				/*** Initialize ***/
+				window.adad.initialize("d0b5d32463c943e994589db47a604cc5");
+				window.adad.setTestMode(true);
+				
+				/*** FullscreenBannerAd Events ***/
+				window.adad.FullscreenBannerAdClosed = function () {
+					console.log('FullscreenBannerAdClosed');
+				};
+				window.adad.FullscreenBannerAdError = function () {
+					console.log('FullscreenBannerAdError');
+				};
+				window.adad.FullscreenBannerAdLoaded = function () {
+					console.log('FullscreenBannerAdLoaded');
+				};
+				window.adad.FullscreenBannerAdShowed = function () {
+					console.log('FullscreenBannerAdShowed');
+				};
+				
+				/*** RewardVideoAd Events ***/
+				window.adad.RewardVideoAdLoaded = function () {
+					console.log('RewardVideoAdLoaded');
+				};
+				window.adad.RewardVideoAdError = function () {
+					console.log('RewardVideoAdError');
+				};
+				window.adad.RewardVideoAdComplete = function () {
+					console.log('RewardVideoAdComplete');
+				};
+				window.adad.RewardVideoAdDestroy = function () {
+					console.log('RewardVideoAdDestroy');
+				};
+				
+				window.adad.RewardVideoAdComplete = function () {
+					console.log('RewardVideoAdComplete');
+				};
+				window.adad.RewardVideoAdDestroy = function () {
+					console.log('RewardVideoAdDestroy');
+				};
+				window.adad.RewardVideoAdStart = function () {
+					console.log('RewardVideoAdStart');
+				};
+				
+				/*** Prepare and Show FullscreenBannerAd ***/
+				window.adad.prepareFullscreenBannerAd("405D442F-EBCB-41C8-8292-9B8DD799A1E4");
+				
+				window.adad.onFullscreenReady = function () {
+					window.adad.showFullscreenBannerAd();
+				};
+				
+				window.adad.onFullscreenNotReady = function () {
+					console.log('onFullscreenNotReady');
+				};
+				
+				/*** Prepare and Show RewardVideoAd ***/
+				window.adad.prepareRewardVideoAd("216738c6-5ff3-4d1c-9234-b6d0aef787b6");
+				
+				window.adad.onRewardVideoAdReady = function () {
+					window.adad.showRewardVideoAd();
+				};
+				window.adad.onRewardVideoAdNotReady = function () {
+					console.log('Reward VideoAd Not Ready.');
+				};
+				
+				console.log('Device is Ready');
+			}, false);
+			
+			function random_position(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) ) + min;
+			}
+		</script>
+        <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+			<button onclick="window.adad.setEnabled(true);">Enable</button>
+			<button onclick="window.adad.setEnabled(false);">Disable</button>
+			<button onclick='window.adad.addBanner("753d8952-6f5d-4691-ac59-d90d93f8f5e1", window.adad.Position.TOP, 0, 0);'>Show Banner at Top</button>
+			<button onclick='window.adad.addBanner("753d8952-6f5d-4691-ac59-d90d93f8f5e1", window.adad.Position.BOTTOM, 0, 0);'>Show Banner at Bottom</button>
+			<button onclick='window.adad.addBanner("753d8952-6f5d-4691-ac59-d90d93f8f5e1", window.adad.Position.XY, 0, random_position(0, 850));'>Show Banner at Random Position</button>
+			<button onclick="window.adad.removeBanner();">Remove Banner</button>
+            <button onclick='window.adad.prepareFullscreenBannerAd("405D442F-EBCB-41C8-8292-9B8DD799A1E4");'>prepareFullscreenBannerAd</button>
+			<button onclick="window.adad.isFullscreenBannerReady();">showFullscreenBannerAd</button>
+            <button onclick='window.adad.prepareRewardVideoAd("216738c6-5ff3-4d1c-9234-b6d0aef787b6");'>prepareRewardVideoAd</button>
+			<button onclick="window.adad.isRewardVideoAdReady();">showRewardVideoAd</button>
+        </div>
+    </body>
+</html>
