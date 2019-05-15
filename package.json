@@ -1,0 +1,39 @@
+{
+  "name": "adad-cordova-plugin",
+  "version": "5.1.1",
+  "description": "Adad ad service plugin for cordova, phonegap and ionic",
+  "cordova": {
+    "id": "adad-cordova-plugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinoosir/adad-cordova-plugin.git"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "ad",
+    "adad",
+    "monetisation",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+"devDependencies": {
+    "cordova": ">=3.0.0"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Milad Mohammadi Rezagah",
+  "license": "MilaDesign",
+  "bugs": {
+    "url": "https://github.com/vinoosir/adad-cordova-plugin/issues"
+  },
+  "homepage": "https://github.com/vinoosir/adad-cordova-plugin#readme"
+}

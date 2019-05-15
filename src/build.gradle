@@ -1,0 +1,22 @@
+repositories{    
+  jcenter()
+  flatDir {
+      dirs 'libs'
+   }
+}
+
+dependencies {
+   compile(name:'adad-sdk-ad-5.1.1', ext:'aar')
+   compile(name:'adad-sdk-banner-5.1.1', ext:'aar')
+   compile(name:'adad-sdk-core-5.1.1', ext:'aar')
+   compile(name:'adad-sdk-fullscreen-5.1.1', ext:'aar')
+   compile(name:'adad-sdk-video-5.1.1', ext:'aar')
+   compile(name:'play-services-ads-identifier-16.0.0', ext:'aar')
+}
+
+android {
+  packagingOptions {
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/LICENSE'
+  }
+}
